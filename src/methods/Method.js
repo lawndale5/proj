@@ -13,6 +13,7 @@ console.log('https://api.github.com/repos/'+uname+'/'+repo+'/commits');
    const data = await response.json();
   
 //recent commits (at least 25)
-return data.splice(0, 25);
+return data.splice(0, 25).map(_data => {
+  return { sha: _data.sha, message: _data.commit.message ,name: _data.commit.author.name};})
 }
 module.exports=fetchData;
