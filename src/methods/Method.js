@@ -17,3 +17,4 @@ return data.splice(0, 25).map(_data => {
   return { sha: _data.sha, message: _data.commit.message ,name: _data.commit.author.name};})
 }
 module.exports=fetchData;
+
