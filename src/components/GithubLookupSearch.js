@@ -17,7 +17,7 @@ function GithubLookupSearch() {
     {
         name: 'Author',
 
-        selector: 'name',
+        selector: row => row.name,
         //sortable: true,
         //right: true,
        wrap: true,
@@ -25,7 +25,7 @@ function GithubLookupSearch() {
     {
         name: 'SHA',
 
-        selector: 'sha',
+        selector: row => row.sha,
         //sortable: true,
         //right: true,
        wrap: true,
@@ -33,7 +33,7 @@ function GithubLookupSearch() {
     {
       name: 'Message',
 
-      selector: 'message',
+      selector: row => row.message,
       //sortable: true,
       //right: true,
      wrap: true,
@@ -100,9 +100,15 @@ function GithubLookupSearch() {
         </form>
         </div>
         {result &&  <DataTable
-            columns={columns}
-            data={result}
-        />}
+                        highlightOnHover
+                        striped
+                        fixedHeader
+                        persistTableHead
+                        //pointerOnHover
+                        columns={columns}
+                        data={result}
+                    />
+        }
     </Box>
      );
 }
